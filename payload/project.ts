@@ -4,38 +4,97 @@ const project: IProject.Payload = {
   disable: false,
   list: [
     {
-      title: 'Linux Kernel Optimization Project',
-      startedAt: '2020-06',
-      where: 'Linux Foundation',
+      title: '교통 거래 수집 시스템 개발 및 운영',
+      startedAt: '2024-07',
+      where: '교통카드 IS팀',
       descriptions: [
         {
-          content:
-            'Initiated and lead a collaborative project aimed at optimizing the Linux Kernel for various hardware architectures.',
+          content: '디지털 운행기록 수집 시스템 개발',
+          weight: 'BOLD',
+          descriptions: [
+            {
+              content:
+                '문제  :  버스 운행기록 데이터의 내부 규격이 제조업체마다 다름. 이를 서비스 로직 내에 분기 처리 시 가독성 및 유지보수성에 좋지 않다 판단',
+            },
+            {
+              content:
+                '개선방법  :  인터페이스 기반 팩토리 메서드 패턴을 통해 파일 유형 별 처리 구현체를 개발, 메인 배치에서는 파일의 헤더 부를 읽어 그에 맞는 구현체에 전달하는 방식으로 신규 파일 유형 추가 시 기존 코드 영향도를 최소화',
+            },
+          ],
         },
         {
-          content:
-            'Achieved significant improvements in system performance and resource management.',
-          weight: 'MEDIUM',
+          content: 'K 패스 교통 거래 내역 전송 배치 최적화',
+          weight: 'BOLD',
           descriptions: [
-            { content: '30% improvement in system resource efficiency' },
-            { content: 'Job Scheduler Refactor and Optimization' },
+            { content: '문제  :  과도한 DB 리소스를 사용하는 배치 성능 최적화' },
+            {
+              content:
+                '개선방법 : 쿼리 실행 계획 분석 및 튜닝 적용, 부적절한 UNION ALL 사용 등을 수정하여 기존 대비 80% 이상의 조회 속도 개선',
+            },
           ],
         },
       ],
     },
     {
-      title: 'Global Linux Bootcamp',
-      startedAt: '2017-05',
-      endedAt: '2019-12',
-      where: 'Open Source Community',
+      title: '한국철도공사 지하철 거래 수집 시스템 개발',
+      startedAt: '2023-11',
+      endedAt: '2024-06',
+      where: '교통카드 IS팀',
       descriptions: [
         {
           content:
-            'Organized and conducted training bootcamps focusing on Linux system engineering skills.',
+            '한국철도공사 ↔ 이동의 즐거움((구) 로카모빌리티) ↔ 티머니로 전달되는 지하철 거래 및 반송거래 수집 및 정합성 검증 기능 구현',
+          weight: 'BOLD',
+          descriptions: [
+            { content: '문제  :  일 500만건 이상의 지하철 거래의 무결성 보장 및 기관 간의 대사' },
+            {
+              content:
+                '해결방법  :  한국철도공사와 티머니에서 수신한 대사 및 반송 파일을 기반으로, 일 단위 전체 거래 건수 및 금액에 대한 자동 대사 기능 구현. 데이터 소스 식별을 위해 DB 스키마 설계 시 원천 파일 명을 테이블에 명시함으로써, 오류 발생 시 기관 담당자와의 커뮤니케이션 효율성 극대화',
+            },
+          ],
         },
         {
-          content:
-            'Successfully trained over 5,000 participants in system administration and security. ',
+          content: '지하철 거래 이상 징후 알림 시스템 구축',
+          weight: 'BOLD',
+          descriptions: [
+            { content: '문제  :  실시간으로 인입되는 파일 기반 교통 거래에 대한 모니터링 필요' },
+            {
+              content:
+                '해결방법  :  사전에 정의된 오류 기준에 따라 오류 거래를 별도 테이블에 분리 적재하고, 티머니 수신 파일과의 대사 과정을 통해 데이터 정합성을 검증함. 이 외 오류 데이터 발생 시 SMS 알림을 통해 신속한 인지가 가능하도록 설계함.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: '자사 선불카드 정산 시스템 운영 및 유지보수',
+      startedAt: '2022-03',
+      endedAt: '2023-10',
+      where: '교통카드 IS팀',
+      descriptions: [
+        {
+          content: '정산 데이터 이상 탐지 로직 개선',
+          weight: 'BOLD',
+          descriptions: [
+            {
+              content:
+                '문제  :  기존 모니터링 기능은 서비스 별 정산 금액이 전주 대비 0원 인 경우에만 이상으로 판단',
+            },
+            {
+              content:
+                '해결방법  :  서비스별 정산 금액 변화를 기반으로 모니터링 로직을 개선하여, 비정상적인 정산 금액을 조기에 탐지할 수 있도록 개선. 해당 방식 으로 특정 서비스의 오정산을 조기 발견하였으며, 6억 원 이상의 정산 오류를 사전에 방지함',
+            },
+          ],
+        },
+        {
+          content: '카드 상품 별 거래 전송 기능 개발',
+          weight: 'BOLD',
+          descriptions: [
+            {
+              content:
+                '카드 상품과 거래일자만을 매개변수로 받아 전송이 가능하도록 설계하여, 다양한 서비스로의 확장성을 고려함. 초기에는 로카페이 상품만을 대상으로 하였으나, 이후 토스카드, 지역 복지카드 등으로 서비스가 확대되었음에도 초기 설계를 통해 소스코드 변경을 최소화할 수 있었음.',
+            },
+          ],
         },
       ],
     },
