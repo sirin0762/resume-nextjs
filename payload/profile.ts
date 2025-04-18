@@ -7,7 +7,6 @@ import image from '../asset/resume_profile_image.jpg';
 const profile: IProfile.Payload = {
   disable: false,
 
-  // image: 'https://resume.yowu.dev/static/image/profile_2019.png',
   image,
   name: {
     title: '신용진',
