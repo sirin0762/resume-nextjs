@@ -15,38 +15,52 @@ const sideProject: ISideProject.Payload = {
           weight: 'MEDIUM',
         },
         {
-          content: '주문, 주문취소에 따른 결제, 환불 기능 및 리뷰 관련 전체 기능 구현',
+          content: '주문, 주문 취소에 따른 결제, 환불 기능 및 리뷰 관련 전체 기능 구현',
           weight: 'MEDIUM',
           descriptions: [
             {
               content:
-                '문제  :  점주 측의 주문 수락과 유저 측의 주문 취소 간 Race Condition 발생 가능성 존재',
+                '문제  :  점주 측의 주문 수락과 사용자 측의 주문 취소 간 Race Condition 발생 가능성 존재',
             },
             {
               content:
-                '해결방법 : 해당 문제는 발생 빈도가 잦아 성능 저하가 우려되는 비관적 락은 배제. Persistence Layer와 Domain Layer가 분리된 아키텍처로 인해 JPA의 version 기반 낙관적 락 적용도 어려웠음. 이에 따라 Redis 기반의 분산 락을 도입하여 Race Condition 상황에서의 상호 배제를 보장함.',
+                '해결방법 : 성능 저하가 우려되는 비관적 락은 배제. Persistence와 Domain Layer가 분리된 아키텍처로 인해 JPA의 version 기반 낙관적 락 적용도 어려웠음. 이에 따라 Redis 기반의 분산 락을 도입하여 Race Condition 상황에서의 상호 배제를 보장함.',
             },
           ],
         },
         {
           content: 'GitHub: https://github.com/FC-InnerCircle-ICD2/O2O-BE/wiki',
-          weight: 'REGULAR',
+          weight: 'MEDIUM',
         },
         {
-          content: 'Site : https://gaebalmin.com/ (현재 AWS 과금이슈로 서비스 중지 상태)',
-          weight: 'REGULAR',
+          content: 'Site : https://gaebalmin.com/ (현재 AWS 과금 이슈로 서비스 중지 상태)',
+          weight: 'MEDIUM',
         },
       ],
     },
     {
-      title: '영어학원 Admin 소통 페이지 개발',
+      title: '영어학원 Admin 페이지 개발',
       startedAt: '2024-03',
       endedAt: '2024-08',
       where: '개인프로젝트',
       descriptions: [
         {
-          content: 'Frontend, Backend, 인프라 전반에 걸친 풀스택 개발 진행',
+          content: '영어 회화 학원 스태프 간 소통을 위한 관리페이지 개발',
           weight: 'MEDIUM',
+        },
+        {
+          content: 'Frontend, Backend, 인프라 모두 개발하며 기획부터 배포까지 전 과정을 직접 수행',
+          weight: 'MEDIUM',
+        },
+        {
+          content: '주요기능',
+          weight: 'MEDIUM',
+          descriptions: [
+            {
+              content:
+                '로그인, 게시글 필터 및 검색, 공지사항 등록, 게시글 및 댓글 CRUD, 게시글 송신 및 수신 등',
+            },
+          ],
         },
         {
           content: '사용기술',
@@ -61,7 +75,8 @@ const sideProject: ISideProject.Payload = {
           ],
         },
         {
-          content: 'Github  :  GitHub - TenSecondProject/member-management-back at develop',
+          content:
+            'GitHub : https://github.com/TenSecondProject/member-management-back/tree/develop',
           weight: 'MEDIUM',
         },
         {

@@ -30,6 +30,7 @@ function Yosume() {
         <Introduce.Component payload={Payload.introduce} />
         <Skill.Component payload={Payload.skill} />
         <Experience.Component payload={Payload.experience} />
+        <div style={{ marginTop: '5vh' }} /> {/* 여백 추가 */}
         <Project.Component payload={Payload.project} />
         <SideProject.Component payload={Payload.sideProject} />
         <OpenSource.Component payload={Payload.openSource} />
